@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "C C",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "G": {
+      "item": "xp_storage_trinkets:cristalis_lazuli"
+    }
+  },
+  "result": {
+    "item": "xp_storage_trinkets:xp_conduit",
+    "count": 1
+  }
+}
