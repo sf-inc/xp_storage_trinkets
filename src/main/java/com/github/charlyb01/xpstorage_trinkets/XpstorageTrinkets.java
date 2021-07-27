@@ -10,8 +10,8 @@ public class XpstorageTrinkets implements ModInitializer {
     public static final Item.Settings settings = new Item.Settings().group(ItemGroup.MISC);
 
     public static final Item cristalisLazuli = new Item(settings);
-    public static final Item xp_saver = new Item(settings);
-    public static final Item xp_conduit = new Item(settings);
+    public static final Item xp_saver = new Item(settings.maxDamage(1));
+    public static final Item xp_conduit = new Item(settings.maxDamage(1000));
 
     @Override
     public void onInitialize() {

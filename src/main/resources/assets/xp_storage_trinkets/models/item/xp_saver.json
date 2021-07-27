@@ -2,5 +2,19 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "xp_storage_trinkets:item/xp_saver"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "xp_storage_trinkets:is_damaged": 0
+      },
+      "model": "xp_storage_trinkets:item/xp_saver"
+    },
+    {
+      "predicate": {
+        "xp_storage_trinkets:is_damaged": 1
+      },
+      "model": "xp_storage_trinkets:item/xp_saver_damaged"
+    }
+  ]
 }
