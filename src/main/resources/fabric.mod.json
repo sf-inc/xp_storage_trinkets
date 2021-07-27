@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "xpstorage_trinkets",
+  "version": "${version}",
+  "name": "Xpstorage_trinkets",
+  "description": "Extension to add Trinkets support to XP Storage",
+  "authors": [
+    "Pardys"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/xpstorage_trinkets/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.github.charlyb01.xpstorage_trinkets.client.XpstorageTrinketsClient"
+    ],
+    "main": [
+      "com.github.charlyb01.xpstorage_trinkets.XpstorageTrinkets"
+    ]
+  },
+  "mixins": [
+    "xpstorage_trinkets.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric": "*"
+  }
+}
