@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "xpstorage_trinkets",
+  "id": "xp_storage_trinkets",
   "version": "${version}",
-  "name": "Xpstorage_trinkets",
+  "name": "XP Storage - Trinkets",
   "description": "Extension to add Trinkets support to XP Storage",
   "authors": [
     "Pardys"
@@ -24,6 +24,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.11.6",
-    "fabric": "*"
+    "fabric": "*",
+    "xp_storage": ">=1.4"
   }
 }
