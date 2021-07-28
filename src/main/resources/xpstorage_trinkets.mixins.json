@@ -4,7 +4,8 @@
   "package": "com.github.charlyb01.xpstorage_trinkets.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "PlayerMixin"
+    "PlayerMixin",
+    "ServerPlayerMixin"
   ],
   "client": [
   ],
