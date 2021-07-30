@@ -7,7 +7,7 @@
   ],
   "key": {
     "S": {
-      "item": "minecraft:lapis_lazuli"
+      "item": "minecraft:string"
     },
     "G": {
       "item": "xp_storage_trinkets:cristalis_lazuli"

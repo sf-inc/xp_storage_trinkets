@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "xp_storage_trinkets:xp_saver"
+    },
+    {
+      "item": "xp_storage_trinkets:cristalis_lazuli"
+    }
+  ],
+  "result": {
+    "item": "xp_storage_trinkets:xp_saver",
+    "count": 1
+  }
+}
