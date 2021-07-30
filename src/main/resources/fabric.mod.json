@@ -17,6 +17,9 @@
     ],
     "main": [
       "com.github.charlyb01.xpstorage_trinkets.XpstorageTrinkets"
+    ],
+    "modmenu": [
+      "com.github.charlyb01.xpstorage_trinkets.config.ModMenuIntegration"
     ]
   },
   "mixins": [
