@@ -7,9 +7,13 @@
   "authors": [
     "Pardys"
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/xp-storage-trinkets",
+    "issues": "https://github.com/sf-inc/xp_storage_trinkets/issues",
+    "sources": "https://github.com/sf-inc/xp_storage_trinkets"
+  },
   "license": "MIT",
-  "icon": "assets/xpstorage_trinkets/icon.png",
+  "icon": "assets/xp_storage_trinkets/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -30,5 +34,11 @@
     "fabric": "*",
     "xp_storage": ">=1.4",
     "trinkets": ">=3.0.2"
+  },
+  "custom": {
+    "modupdater": {
+      "strategy": "curseforge",
+      "projectID": 508696
+    }
   }
 }
