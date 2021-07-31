@@ -29,10 +29,8 @@ public abstract class ServerPlayerMixin extends PlayerEntity {
 
     @Inject(method = "onDeath", at = @At("HEAD"))
     private void saveXPOnDeath(DamageSource source, CallbackInfo ci) {
-        System.out.println("yes");
         if (TrinketsApi.getTrinketComponent(this).isPresent()
                 && TrinketsApi.getTrinketComponent(this).get().isEquipped(XpstorageTrinkets.xp_saver)) {
-            System.out.println("yessssssssssssssss");
 
             ItemStack xpSaver = getXPSaver();
 
