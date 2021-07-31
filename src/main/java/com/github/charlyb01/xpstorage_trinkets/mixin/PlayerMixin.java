@@ -2,6 +2,7 @@ package com.github.charlyb01.xpstorage_trinkets.mixin;
 
 import com.github.charlyb01.xpstorage.XpBook;
 import com.github.charlyb01.xpstorage_trinkets.XpstorageTrinkets;
+import com.github.charlyb01.xpstorage_trinkets.config.ModConfig;
 import dev.emi.trinkets.api.TrinketInventory;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.EntityType;
@@ -36,10 +37,16 @@ public abstract class PlayerMixin extends LivingEntity {
 
             List<ItemStack> xpConduits = getXPConduits();
             List<ItemStack> xpBooks = getXPBooks();
+            int toTransfer = 0;
+
+            if (!xpBooks.isEmpty()) {
+                toTransfer = (int) (experience * (ModConfig.get().xpConduitTransfer / 100.0F));
+                experience -= toTransfer;
+            }
 
             while (!xpBooks.isEmpty()
                     && !xpConduits.isEmpty()
-                    && experience > 0) {
+                    && toTransfer > 0) {
 
                 ItemStack xpBook = xpBooks.get(0);
                 int bookExperience = xpBook.getDamage();
@@ -57,11 +64,13 @@ public abstract class PlayerMixin extends LivingEntity {
                     continue;
                 }
 
-                int toRemove = Math.min(Math.min(bookDurability, conduitDurability), experience);
-                experience -= toRemove;
+                int toRemove = Math.min(Math.min(bookDurability, conduitDurability), toTransfer);
+                toTransfer -= toRemove;
                 xpBook.setDamage(bookExperience + toRemove);
                 xpConduit.setDamage(conduitDamage + toRemove);
             }
+
+            experience += toTransfer;
         }
 
         return experience;

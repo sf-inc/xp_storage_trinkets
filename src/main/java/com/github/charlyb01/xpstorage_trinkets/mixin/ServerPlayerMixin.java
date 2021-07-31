@@ -3,6 +3,7 @@ package com.github.charlyb01.xpstorage_trinkets.mixin;
 import com.github.charlyb01.xpstorage.Utils;
 import com.github.charlyb01.xpstorage.XpBook;
 import com.github.charlyb01.xpstorage_trinkets.XpstorageTrinkets;
+import com.github.charlyb01.xpstorage_trinkets.config.ModConfig;
 import com.mojang.authlib.GameProfile;
 import dev.emi.trinkets.api.TrinketInventory;
 import dev.emi.trinkets.api.TrinketsApi;
@@ -37,6 +38,7 @@ public abstract class ServerPlayerMixin extends PlayerEntity {
             if (xpSaver.getDamage() < xpSaver.getMaxDamage()) {
                 int playerExperience = Utils.getExperienceToLevel(this.experienceLevel);
                 playerExperience += this.experienceProgress * Utils.getLevelExperience(this.experienceLevel);
+                playerExperience *= (ModConfig.get().xpSaverTransfer / 100.0F);
 
                 List<ItemStack> xpBooks = getXPBooks();
                 if (!xpBooks.isEmpty()) {
