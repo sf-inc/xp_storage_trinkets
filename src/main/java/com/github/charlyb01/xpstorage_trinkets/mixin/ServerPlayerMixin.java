@@ -41,7 +41,7 @@ public abstract class ServerPlayerMixin extends PlayerEntity {
                 playerExperience *= (ModConfig.get().xpSaverTransfer / 100.0F);
 
                 List<ItemStack> xpBooks = getXPBooks();
-                if (!xpBooks.isEmpty()) {
+                if (!xpBooks.isEmpty() && playerExperience > 0) {
                     xpSaver.setDamage(xpSaver.getDamage() + 1);
                 }
 
