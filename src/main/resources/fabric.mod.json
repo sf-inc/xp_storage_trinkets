@@ -30,10 +30,10 @@
     "xpstorage_trinkets.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.11.6",
+    "fabricloader": ">=0.12.6",
     "fabric": "*",
-    "xp_storage": ">=1.4",
-    "trinkets": ">=3.0.2"
+    "xp_storage": ">=1.4.3",
+    "trinkets": ">=3.1.0"
   },
   "custom": {
     "modupdater": {
