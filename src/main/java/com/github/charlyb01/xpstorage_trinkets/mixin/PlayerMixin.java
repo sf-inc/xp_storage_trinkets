@@ -28,7 +28,7 @@ public abstract class PlayerMixin extends LivingEntity {
         super(entityType, world);
     }
 
-    @ModifyVariable(method = "addExperience", at = @At("HEAD"), ordinal = 0)
+    @ModifyVariable(method = "addExperience", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private int putXPOnConduit(int experience) {
         if (!(this.getMainHandStack().getItem() instanceof XpBook)
                 && !(this.getOffHandStack().getItem() instanceof XpBook)
