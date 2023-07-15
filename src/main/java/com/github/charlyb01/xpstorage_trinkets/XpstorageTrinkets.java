@@ -5,15 +5,17 @@ import dev.emi.trinkets.api.TrinketItem;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class XpstorageTrinkets implements ModInitializer {
-    public static final Item.Settings settings = new Item.Settings().group(ItemGroup.MISC);
+    public static final String MOD_ID = "xp_storage_trinkets";
+    private static final Item.Settings settings = new Item.Settings();
 
-    public static final Item cristalisLazuli = new Item(settings);
     public static Item xp_conduit;
     public static Item xp_saver;
 
@@ -21,15 +23,22 @@ public class XpstorageTrinkets implements ModInitializer {
     public void onInitialize() {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
 
-        Registry.register(Registry.ITEM, new Identifier("xp_storage_trinkets", "cristalis_lazuli"), cristalisLazuli);
-
         if (ModConfig.get().xpConduitAllowed) {
             xp_conduit = new TrinketItem(settings.maxDamage(ModConfig.get().xpConduitMaxDamage));
-            Registry.register(Registry.ITEM, new Identifier("xp_storage_trinkets", "xp_conduit"), xp_conduit);
+            Registry.register(Registries.ITEM, new Identifier(MOD_ID, "xp_conduit"), xp_conduit);
         }
         if (ModConfig.get().xpSaverAllowed) {
             xp_saver = new TrinketItem(settings.maxDamage(ModConfig.get().xpSaverMaxDamage));
-            Registry.register(Registry.ITEM, new Identifier("xp_storage_trinkets", "xp_saver"), xp_saver);
+            Registry.register(Registries.ITEM, new Identifier(MOD_ID, "xp_saver"), xp_saver);
         }
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            if (ModConfig.get().xpConduitAllowed) {
+                entries.add(xp_conduit);
+            }
+            if (ModConfig.get().xpSaverAllowed) {
+                entries.add(xp_saver);
+            }
+        });
     }
 }

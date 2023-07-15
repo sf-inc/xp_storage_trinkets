@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.12-SNAPSHOT'
+    id 'fabric-loom' version '1.1-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -15,12 +15,6 @@ repositories {
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://ladysnake.jfrog.io/artifactory/mods" }
     maven { url "https://jitpack.io" }
-    maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
     mavenLocal()
 }
 
@@ -36,14 +30,13 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
-    modImplementation "curse.maven:cardinal-components-base-318449:3801039"
-    modImplementation "curse.maven:cardinal-components-item-318449:3801043"
-    modImplementation "curse.maven:cardinal-components-entity-318449:3801042"
+    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_version}"
+    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-item:${project.cardinal_version}"
+    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_version}"
 
     modImplementation "com.github.charlyb01:xp_storage:${project.xpstorage_version}+${project.minecraft_version}"
 
-    // modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-    modImplementation "com.github.emilyalexandra:trinkets:${project.trinkets_version}"
+    modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 }
 
 processResources {
