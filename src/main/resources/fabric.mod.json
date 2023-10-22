@@ -31,8 +31,8 @@
   ],
   "depends": {
     "fabricloader": ">=0.12.6",
-    "fabric": "*",
-    "xp_storage": ">=1.5.3",
-    "trinkets": ">=3.7.0"
+    "fabric-api": "*",
+    "xp_storage": ">=1.5.6",
+    "trinkets": ">=3.8.0"
   }
 }

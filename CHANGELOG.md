@@ -4,6 +4,10 @@
 * **x.X versions** are either updates that add content or major bug fixes
 * **x.x.X versions** are either small content update (language translation, new textures, ...) or bug fixes
 
+## v1.0.1
+
+* Port to 1.20.2
+
 ## v1.0
 
 * Port to 1.20.1
