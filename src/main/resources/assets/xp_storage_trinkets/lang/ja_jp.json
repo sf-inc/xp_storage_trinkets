@@ -1,0 +1,15 @@
+{
+  "itemGroup.xp_storage_trinkets.trinkets": "XP Storage（装飾具）",
+
+  "item.xp_storage_trinkets.cristalis_lazuli": "ラピスラズリ結晶",
+  "item.xp_storage_trinkets.xp_conduit": "経験値の指輪",
+  "item.xp_storage_trinkets.xp_saver": "経験値の首飾り",
+
+  "text.autoconfig.xp_storage_trinkets.title": "XP Storage（装飾具）の構成",
+  "text.autoconfig.xp_storage_trinkets.option.xpConduitAllowed": "経験値の指輪を許可する",
+  "text.autoconfig.xp_storage_trinkets.option.xpConduitMaxDamage": "経験値の指輪の耐久度",
+  "text.autoconfig.xp_storage_trinkets.option.xpConduitTransfer": "経験値の指輪の転送率 (%)",
+  "text.autoconfig.xp_storage_trinkets.option.xpSaverAllowed": "経験値の首飾りを許可する",
+  "text.autoconfig.xp_storage_trinkets.option.xpSaverMaxDamage": "経験値の首飾りの耐久度",
+  "text.autoconfig.xp_storage_trinkets.option.xpSaverTransfer": "経験値の首飾りの転送率 (%)"
+}
