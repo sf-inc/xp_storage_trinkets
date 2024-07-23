@@ -24,6 +24,9 @@
     ],
     "modmenu": [
       "com.github.charlyb01.xpstorage_trinkets.config.ModMenuIntegration"
+    ],
+    "fabric-datagen": [
+      "com.github.charlyb01.xpstorage_trinkets.data.DataGenerator"
     ]
   },
   "mixins": [
@@ -32,7 +35,7 @@
   "depends": {
     "fabricloader": ">=0.15.11",
     "fabric-api": ">=0.100.4",
-    "xp_storage": ">=1.5.8",
+    "xp_storage": ">=1.5.9",
     "trinkets": ">=3.10.0"
   },
   "custom": {

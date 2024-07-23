@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "xp_storage:crystallized_lapis"
+    },
+    {
+      "item": "xp_storage_trinkets:xp_saver"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "xp_storage_trinkets:xp_saver"
+  }
+}

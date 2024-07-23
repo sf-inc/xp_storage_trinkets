@@ -80,3 +80,7 @@ publishing {
         // mavenLocal()
     }
 }
+
+fabricApi {
+    configureDataGeneration()
+}

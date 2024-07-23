@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "l": {
+      "item": "xp_storage:crystallized_lapis"
+    },
+    "s": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "s s",
+    " s ",
+    " l "
+  ],
+  "result": {
+    "count": 1,
+    "id": "xp_storage_trinkets:xp_saver"
+  }
+}

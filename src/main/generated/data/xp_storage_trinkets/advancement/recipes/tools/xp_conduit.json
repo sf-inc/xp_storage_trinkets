@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "xp_storage:crystallized_lapis"
-            ]
+            "items": "xp_storage:crystallized_lapis"
           }
         ]
       },
@@ -15,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "xp_storage_trinkets:xp_saver"
+        "recipe": "xp_storage_trinkets:xp_conduit"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_crystallized_lapis",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_crystallized_lapis"
     ]
   ],
   "rewards": {
     "recipes": [
-      "xp_storage_trinkets:xp_saver"
+      "xp_storage_trinkets:xp_conduit"
     ]
   }
 }

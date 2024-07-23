@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " G ",
-    "C C",
-    " C "
-  ],
+  "category": "equipment",
   "key": {
-    "C": {
+    "c": {
       "item": "minecraft:copper_ingot"
     },
-    "G": {
+    "l": {
       "item": "xp_storage:crystallized_lapis"
     }
   },
+  "pattern": [
+    " l ",
+    "c c",
+    " c "
+  ],
   "result": {
-    "item": "xp_storage_trinkets:xp_conduit",
-    "count": 1
+    "count": 1,
+    "id": "xp_storage_trinkets:xp_conduit"
   }
 }
