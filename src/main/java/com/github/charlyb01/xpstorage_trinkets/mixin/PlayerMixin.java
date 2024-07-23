@@ -1,8 +1,10 @@
 package com.github.charlyb01.xpstorage_trinkets.mixin;
 
 import com.github.charlyb01.xpstorage.BookInfo;
+import com.github.charlyb01.xpstorage.Utils;
 import com.github.charlyb01.xpstorage.XpBook;
-import com.github.charlyb01.xpstorage.cardinal.MyComponents;
+import com.github.charlyb01.xpstorage.component.MyComponents;
+import com.github.charlyb01.xpstorage.component.XpAmountData;
 import com.github.charlyb01.xpstorage_trinkets.XpstorageTrinkets;
 import com.github.charlyb01.xpstorage_trinkets.config.ModConfig;
 import dev.emi.trinkets.api.SlotReference;
@@ -16,6 +18,7 @@ import net.minecraft.util.Pair;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
@@ -50,26 +53,27 @@ public abstract class PlayerMixin extends LivingEntity {
                 && !xpConduits.isEmpty()
                 && toTransfer > 0) {
 
-            ItemStack xpBook = xpBooks.get(0);
-            int bookExperience = MyComponents.XP_COMPONENT.get(xpBook).getAmount();
+            ItemStack xpBook = xpBooks.getFirst();
+            int bookExperience = xpBook.getOrDefault(MyComponents.XP_COMPONENT, XpAmountData.EMPTY).amount();
             int bookMaxExperience = ((BookInfo) xpBook.getItem()).getMaxExperience();
             int bookRemainingExperience = bookMaxExperience - bookExperience;
             if (bookRemainingExperience == 0) {
-                xpBooks.remove(0);
+                xpBooks.removeFirst();
                 continue;
             }
 
-            ItemStack xpConduit = xpConduits.get(0);
+            ItemStack xpConduit = xpConduits.getFirst();
             int conduitDamage = xpConduit.getDamage();
             int conduitDurability = xpConduit.getMaxDamage() - conduitDamage;
             if (conduitDurability == 0) {
-                xpConduits.remove(0);
+                xpConduits.removeFirst();
                 continue;
             }
 
             int toRemove = Math.min(Math.min(bookRemainingExperience, conduitDurability), toTransfer);
             toTransfer -= toRemove;
-            MyComponents.XP_COMPONENT.get(xpBook).setAmount(bookExperience + toRemove);
+            int amount = bookExperience + toRemove;
+            xpBook.set(MyComponents.XP_COMPONENT, new XpAmountData(amount, Utils.getLevelFromExperience(amount)));
             xpConduit.setDamage(conduitDamage + toRemove);
         }
 
@@ -77,6 +81,7 @@ public abstract class PlayerMixin extends LivingEntity {
         return experience;
     }
 
+    @Unique
     private List<ItemStack> getXPConduits() {
         List<ItemStack> list = new ArrayList<>();
 
@@ -89,6 +94,7 @@ public abstract class PlayerMixin extends LivingEntity {
         return list;
     }
 
+    @Unique
     private List<ItemStack> getXPBooks() {
         List<ItemStack> list = new ArrayList<>();
         for (ItemStack itemStack : this.getInventory().main) {

@@ -30,9 +30,16 @@
     "xpstorage_trinkets.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.6",
-    "fabric-api": "*",
-    "xp_storage": ">=1.5.6",
-    "trinkets": ">=3.8.0"
+    "fabricloader": ">=0.15.11",
+    "fabric-api": ">=0.100.4",
+    "xp_storage": ">=1.5.8",
+    "trinkets": ">=3.10.0"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/eNwkve8k7c"
+      }
+    }
   }
 }

@@ -14,7 +14,6 @@ import net.minecraft.util.Identifier;
 
 public class XpstorageTrinkets implements ModInitializer {
     public static final String MOD_ID = "xp_storage_trinkets";
-    private static final Item.Settings settings = new Item.Settings();
 
     public static Item xp_conduit;
     public static Item xp_saver;
@@ -24,12 +23,12 @@ public class XpstorageTrinkets implements ModInitializer {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
 
         if (ModConfig.get().xpConduitAllowed) {
-            xp_conduit = new TrinketItem(settings.maxDamage(ModConfig.get().xpConduitMaxDamage));
-            Registry.register(Registries.ITEM, new Identifier(MOD_ID, "xp_conduit"), xp_conduit);
+            xp_conduit = new TrinketItem(new Item.Settings().maxDamage(ModConfig.get().xpConduitMaxDamage));
+            Registry.register(Registries.ITEM, id("xp_conduit"), xp_conduit);
         }
         if (ModConfig.get().xpSaverAllowed) {
-            xp_saver = new TrinketItem(settings.maxDamage(ModConfig.get().xpSaverMaxDamage));
-            Registry.register(Registries.ITEM, new Identifier(MOD_ID, "xp_saver"), xp_saver);
+            xp_saver = new TrinketItem(new Item.Settings().maxDamage(ModConfig.get().xpSaverMaxDamage));
+            Registry.register(Registries.ITEM, id("xp_saver"), xp_saver);
         }
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
@@ -40,5 +39,9 @@ public class XpstorageTrinkets implements ModInitializer {
                 entries.add(xp_saver);
             }
         });
+    }
+
+    public static Identifier id(final String path) {
+        return Identifier.of(MOD_ID, path);
     }
 }
