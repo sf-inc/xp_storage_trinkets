@@ -7,18 +7,12 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 @Config(name = "xp_storage_trinkets")
 public class ModConfig implements ConfigData {
-    @ConfigEntry.Gui.RequiresRestart
-    public boolean xpConduitAllowed = true;
-
     @ConfigEntry.BoundedDiscrete(min = 100, max = 2000)
     @ConfigEntry.Gui.RequiresRestart
     public int xpConduitMaxDamage = 1000;
 
     @ConfigEntry.BoundedDiscrete(min = 10, max = 100)
     public int xpConduitTransfer = 75;
-
-    @ConfigEntry.Gui.RequiresRestart
-    public boolean xpSaverAllowed = true;
 
     @ConfigEntry.BoundedDiscrete(min = 1, max = 10)
     @ConfigEntry.Gui.RequiresRestart

@@ -5,7 +5,7 @@ import com.github.charlyb01.xpstorage.Utils;
 import com.github.charlyb01.xpstorage.XpBook;
 import com.github.charlyb01.xpstorage.component.MyComponents;
 import com.github.charlyb01.xpstorage.component.XpAmountData;
-import com.github.charlyb01.xpstorage_trinkets.XpStorageTrinkets;
+import com.github.charlyb01.xpstorage_trinkets.item.ItemRegistry;
 import com.github.charlyb01.xpstorage_trinkets.config.ModConfig;
 import com.mojang.authlib.GameProfile;
 import dev.emi.trinkets.api.SlotReference;
@@ -82,7 +82,7 @@ public abstract class ServerPlayerMixin extends PlayerEntity {
         if (TrinketsApi.getTrinketComponent(this).isEmpty()) return null;
 
         List<Pair<SlotReference, ItemStack>> slots = TrinketsApi.getTrinketComponent(this).get()
-                .getEquipped(XpStorageTrinkets.xp_saver);
+                .getEquipped(ItemRegistry.XP_SAVER);
 
         return slots.isEmpty() ? null : slots.getFirst().getRight();
     }

@@ -5,7 +5,7 @@ import com.github.charlyb01.xpstorage.Utils;
 import com.github.charlyb01.xpstorage.XpBook;
 import com.github.charlyb01.xpstorage.component.MyComponents;
 import com.github.charlyb01.xpstorage.component.XpAmountData;
-import com.github.charlyb01.xpstorage_trinkets.XpStorageTrinkets;
+import com.github.charlyb01.xpstorage_trinkets.item.ItemRegistry;
 import com.github.charlyb01.xpstorage_trinkets.config.ModConfig;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketsApi;
@@ -87,7 +87,7 @@ public abstract class PlayerMixin extends LivingEntity {
 
         if (TrinketsApi.getTrinketComponent(this).isPresent()) {
             List<Pair<SlotReference, ItemStack>> slots = TrinketsApi.getTrinketComponent(this).get()
-                    .getEquipped(XpStorageTrinkets.xp_conduit);
+                    .getEquipped(ItemRegistry.XP_CONDUIT);
             slots.forEach(slot -> list.add(slot.getRight()));
         }
 

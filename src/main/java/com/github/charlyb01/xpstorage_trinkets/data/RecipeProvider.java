@@ -1,7 +1,6 @@
 package com.github.charlyb01.xpstorage_trinkets.data;
 
-import com.github.charlyb01.xpstorage.Xpstorage;
-import com.github.charlyb01.xpstorage_trinkets.XpStorageTrinkets;
+import com.github.charlyb01.xpstorage_trinkets.item.ItemRegistry;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
@@ -16,6 +15,8 @@ import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.github.charlyb01.xpstorage.item.ItemRegistry.CRYSTALLIZED_LAPIS;
+
 public class RecipeProvider extends FabricRecipeProvider {
     public RecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
@@ -23,39 +24,39 @@ public class RecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_conduit)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ItemRegistry.XP_CONDUIT)
                 .pattern(" l ")
                 .pattern("c c")
                 .pattern(" c ")
-                .input('l', Xpstorage.CRYSTALLIZED_LAPIS)
+                .input('l', CRYSTALLIZED_LAPIS)
                 .input('c', Items.COPPER_INGOT)
-                .criterion(FabricRecipeProvider.hasItem(Xpstorage.CRYSTALLIZED_LAPIS),
-                        FabricRecipeProvider.conditionsFromItem(Xpstorage.CRYSTALLIZED_LAPIS))
+                .criterion(FabricRecipeProvider.hasItem(CRYSTALLIZED_LAPIS),
+                        FabricRecipeProvider.conditionsFromItem(CRYSTALLIZED_LAPIS))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_conduit)
-                .input(Xpstorage.CRYSTALLIZED_LAPIS)
-                .input(XpStorageTrinkets.xp_conduit)
-                .criterion(FabricRecipeProvider.hasItem(XpStorageTrinkets.xp_conduit),
-                        FabricRecipeProvider.conditionsFromItem(XpStorageTrinkets.xp_conduit))
-                .offerTo(exporter, getItemRepairId(XpStorageTrinkets.xp_conduit));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ItemRegistry.XP_CONDUIT)
+                .input(CRYSTALLIZED_LAPIS)
+                .input(ItemRegistry.XP_CONDUIT)
+                .criterion(FabricRecipeProvider.hasItem(ItemRegistry.XP_CONDUIT),
+                        FabricRecipeProvider.conditionsFromItem(ItemRegistry.XP_CONDUIT))
+                .offerTo(exporter, getItemRepairId(ItemRegistry.XP_CONDUIT));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_saver)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ItemRegistry.XP_SAVER)
                 .pattern("s s")
                 .pattern(" s ")
                 .pattern(" l ")
-                .input('l', Xpstorage.CRYSTALLIZED_LAPIS)
+                .input('l', CRYSTALLIZED_LAPIS)
                 .input('s', Items.STRING)
-                .criterion(FabricRecipeProvider.hasItem(Xpstorage.CRYSTALLIZED_LAPIS),
-                        FabricRecipeProvider.conditionsFromItem(Xpstorage.CRYSTALLIZED_LAPIS))
+                .criterion(FabricRecipeProvider.hasItem(CRYSTALLIZED_LAPIS),
+                        FabricRecipeProvider.conditionsFromItem(CRYSTALLIZED_LAPIS))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_saver)
-                .input(Xpstorage.CRYSTALLIZED_LAPIS)
-                .input(XpStorageTrinkets.xp_saver)
-                .criterion(FabricRecipeProvider.hasItem(XpStorageTrinkets.xp_saver),
-                        FabricRecipeProvider.conditionsFromItem(XpStorageTrinkets.xp_saver))
-                .offerTo(exporter, getItemRepairId(XpStorageTrinkets.xp_saver));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ItemRegistry.XP_SAVER)
+                .input(CRYSTALLIZED_LAPIS)
+                .input(ItemRegistry.XP_SAVER)
+                .criterion(FabricRecipeProvider.hasItem(ItemRegistry.XP_SAVER),
+                        FabricRecipeProvider.conditionsFromItem(ItemRegistry.XP_SAVER))
+                .offerTo(exporter, getItemRepairId(ItemRegistry.XP_SAVER));
     }
 
     private static Identifier getItemRepairId(final ItemConvertible item) {
