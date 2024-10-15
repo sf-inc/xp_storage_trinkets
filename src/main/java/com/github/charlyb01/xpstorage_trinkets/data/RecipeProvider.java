@@ -1,7 +1,7 @@
 package com.github.charlyb01.xpstorage_trinkets.data;
 
 import com.github.charlyb01.xpstorage.Xpstorage;
-import com.github.charlyb01.xpstorage_trinkets.XpstorageTrinkets;
+import com.github.charlyb01.xpstorage_trinkets.XpStorageTrinkets;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
@@ -23,7 +23,7 @@ public class RecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpstorageTrinkets.xp_conduit)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_conduit)
                 .pattern(" l ")
                 .pattern("c c")
                 .pattern(" c ")
@@ -33,14 +33,14 @@ public class RecipeProvider extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(Xpstorage.CRYSTALLIZED_LAPIS))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpstorageTrinkets.xp_conduit)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_conduit)
                 .input(Xpstorage.CRYSTALLIZED_LAPIS)
-                .input(XpstorageTrinkets.xp_conduit)
-                .criterion(FabricRecipeProvider.hasItem(XpstorageTrinkets.xp_conduit),
-                        FabricRecipeProvider.conditionsFromItem(XpstorageTrinkets.xp_conduit))
-                .offerTo(exporter, getItemRepairId(XpstorageTrinkets.xp_conduit));
+                .input(XpStorageTrinkets.xp_conduit)
+                .criterion(FabricRecipeProvider.hasItem(XpStorageTrinkets.xp_conduit),
+                        FabricRecipeProvider.conditionsFromItem(XpStorageTrinkets.xp_conduit))
+                .offerTo(exporter, getItemRepairId(XpStorageTrinkets.xp_conduit));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpstorageTrinkets.xp_saver)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_saver)
                 .pattern("s s")
                 .pattern(" s ")
                 .pattern(" l ")
@@ -50,12 +50,12 @@ public class RecipeProvider extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(Xpstorage.CRYSTALLIZED_LAPIS))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpstorageTrinkets.xp_saver)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, XpStorageTrinkets.xp_saver)
                 .input(Xpstorage.CRYSTALLIZED_LAPIS)
-                .input(XpstorageTrinkets.xp_saver)
-                .criterion(FabricRecipeProvider.hasItem(XpstorageTrinkets.xp_saver),
-                        FabricRecipeProvider.conditionsFromItem(XpstorageTrinkets.xp_saver))
-                .offerTo(exporter, getItemRepairId(XpstorageTrinkets.xp_saver));
+                .input(XpStorageTrinkets.xp_saver)
+                .criterion(FabricRecipeProvider.hasItem(XpStorageTrinkets.xp_saver),
+                        FabricRecipeProvider.conditionsFromItem(XpStorageTrinkets.xp_saver))
+                .offerTo(exporter, getItemRepairId(XpStorageTrinkets.xp_saver));
     }
 
     private static Identifier getItemRepairId(final ItemConvertible item) {

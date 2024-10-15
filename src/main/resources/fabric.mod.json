@@ -17,10 +17,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.github.charlyb01.xpstorage_trinkets.client.XpstorageTrinketsClient"
+      "com.github.charlyb01.xpstorage_trinkets.client.XpStorageTrinketsClient"
     ],
     "main": [
-      "com.github.charlyb01.xpstorage_trinkets.XpstorageTrinkets"
+      "com.github.charlyb01.xpstorage_trinkets.XpStorageTrinkets"
     ],
     "modmenu": [
       "com.github.charlyb01.xpstorage_trinkets.config.ModMenuIntegration"

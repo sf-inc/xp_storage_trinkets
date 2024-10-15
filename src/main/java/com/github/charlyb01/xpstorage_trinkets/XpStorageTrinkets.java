@@ -12,7 +12,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class XpstorageTrinkets implements ModInitializer {
+public class XpStorageTrinkets implements ModInitializer {
     public static final String MOD_ID = "xp_storage_trinkets";
 
     public static Item xp_conduit;
