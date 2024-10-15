@@ -1,10 +1,9 @@
 package com.github.charlyb01.xpstorage_trinkets.mixin;
 
-import com.github.charlyb01.xpstorage.BookInfo;
 import com.github.charlyb01.xpstorage.Utils;
-import com.github.charlyb01.xpstorage.XpBook;
 import com.github.charlyb01.xpstorage.component.MyComponents;
 import com.github.charlyb01.xpstorage.component.XpAmountData;
+import com.github.charlyb01.xpstorage.item.XpBook;
 import com.github.charlyb01.xpstorage_trinkets.item.ItemRegistry;
 import com.github.charlyb01.xpstorage_trinkets.config.ModConfig;
 import com.mojang.authlib.GameProfile;
@@ -46,8 +45,8 @@ public abstract class ServerPlayerMixin extends PlayerEntity {
             while (!xpBooks.isEmpty() && playerExperience > 0) {
                 ItemStack xpBook = xpBooks.getFirst();
                 int bookExperience = xpBook.getOrDefault(MyComponents.XP_COMPONENT, XpAmountData.EMPTY).amount();
-                int bookMaxExperience = ((BookInfo) xpBook.getItem()).getMaxExperience();
-                int bookMaxLevel = ((BookInfo) xpBook.getItem()).getMaxLevel();
+                int bookMaxExperience = XpBook.getMaxXpAmount(xpBook);
+                int bookMaxLevel = XpBook.getMaxXpLevel(xpBook);
                 int bookRemainingExperience = bookMaxExperience - bookExperience;
                 if (bookRemainingExperience == 0) {
                     xpBooks.removeFirst();

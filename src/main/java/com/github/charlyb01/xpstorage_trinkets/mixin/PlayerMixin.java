@@ -1,10 +1,9 @@
 package com.github.charlyb01.xpstorage_trinkets.mixin;
 
-import com.github.charlyb01.xpstorage.BookInfo;
 import com.github.charlyb01.xpstorage.Utils;
-import com.github.charlyb01.xpstorage.XpBook;
 import com.github.charlyb01.xpstorage.component.MyComponents;
 import com.github.charlyb01.xpstorage.component.XpAmountData;
+import com.github.charlyb01.xpstorage.item.XpBook;
 import com.github.charlyb01.xpstorage_trinkets.item.ItemRegistry;
 import com.github.charlyb01.xpstorage_trinkets.config.ModConfig;
 import dev.emi.trinkets.api.SlotReference;
@@ -25,6 +24,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.github.charlyb01.xpstorage.item.ItemRegistry.XP_BOOK;
+
 @Mixin(value = PlayerEntity.class, priority = 100)
 public abstract class PlayerMixin extends LivingEntity {
     @Shadow public abstract PlayerInventory getInventory();
@@ -35,8 +36,8 @@ public abstract class PlayerMixin extends LivingEntity {
 
     @ModifyVariable(method = "addExperience", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private int putXPOnConduit(int experience) {
-        if (this.getMainHandStack().getItem() instanceof XpBook
-                || this.getOffHandStack().getItem() instanceof XpBook) {
+        if (this.getMainHandStack().isOf(XP_BOOK)
+                || this.getOffHandStack().isOf(XP_BOOK)) {
             return experience;
         }
 
@@ -55,7 +56,7 @@ public abstract class PlayerMixin extends LivingEntity {
 
             ItemStack xpBook = xpBooks.getFirst();
             int bookExperience = xpBook.getOrDefault(MyComponents.XP_COMPONENT, XpAmountData.EMPTY).amount();
-            int bookMaxExperience = ((BookInfo) xpBook.getItem()).getMaxExperience();
+            int bookMaxExperience = XpBook.getMaxXpAmount(xpBook);
             int bookRemainingExperience = bookMaxExperience - bookExperience;
             if (bookRemainingExperience == 0) {
                 xpBooks.removeFirst();
@@ -98,7 +99,7 @@ public abstract class PlayerMixin extends LivingEntity {
     private List<ItemStack> getXPBooks() {
         List<ItemStack> list = new ArrayList<>();
         for (ItemStack itemStack : this.getInventory().main) {
-            if (itemStack.getItem() instanceof XpBook) {
+            if (itemStack.isOf(XP_BOOK)) {
                 list.add(itemStack);
             }
         }
