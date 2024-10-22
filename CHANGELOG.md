@@ -4,6 +4,12 @@
 * **x.X versions** are either updates that add content or major bug fixes
 * **x.x.X versions** are either small content update (language translation, new textures, ...) or bug fixes
 
+## v1.0.2
+
+* Compatibility update with XP Storage v1.6
+* Items can't be disabled anymore, registration should not depend on config
+* Add Japanese translation
+
 ## v1.0.1
 
 * Port to 1.20.2
