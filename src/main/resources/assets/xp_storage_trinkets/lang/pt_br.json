@@ -1,0 +1,13 @@
+{
+  "itemGroup.xp_storage_trinkets.trinkets": "Armazenamento de XP - Trinkets",
+
+  "item.xp_storage_trinkets.cristalis_lazuli": "Cristalis lazuli",
+  "item.xp_storage_trinkets.xp_conduit": "Anel de XP",
+  "item.xp_storage_trinkets.xp_saver": "Colar de XP",
+
+  "text.autoconfig.xp_storage_trinkets.title": "configurações de armazenamento de XP - Trinkets",
+  "text.autoconfig.xp_storage_trinkets.option.xpConduitMaxDamage": "durabilidade do anel de XP",
+  "text.autoconfig.xp_storage_trinkets.option.xpConduitTransfer": "quantidade de transferência do anel de XP (%)",
+  "text.autoconfig.xp_storage_trinkets.option.xpSaverMaxDamage": "durabilidade do colar de XP",
+  "text.autoconfig.xp_storage_trinkets.option.xpSaverTransfer": "quantidade de transferência do colar de XP (%)"
+}
